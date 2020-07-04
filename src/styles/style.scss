@@ -1,0 +1,35 @@
+@import "./variables";
+@import "./fonts";
+@import "./mixins";
+
+@import "../containers/Home/style.scss";
+@import "../containers/Cart/style.scss";
+
+@import "../components/Header/style.scss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.App {
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto,
+    "Helvetica Neue", sans-serif;
+  background-color: #faf9f8;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  flex-flow: column wrap;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+main {
+  //   display: flex;
+  //   justify-content: center;
+  //   flex: 1 1;
+  max-width: $page-width;
+  width: 100%;
+  padding: 1rem;
+}

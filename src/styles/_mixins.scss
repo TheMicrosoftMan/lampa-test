@@ -1,0 +1,37 @@
+@mixin button() {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  padding: 0 16px;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(138, 136, 134);
+  border-radius: 2px;
+  height: 32px;
+  transition: all ease-in-out 0.2s;
+  box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, 0.132),
+    0 0.6px 1.8px 0 rgba(0, 0, 0, 0.108);
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(243, 241, 241);
+    color: rgb(32, 31, 30);
+  }
+}
+
+@mixin button-white() {
+  @include button();
+  background-color: rgb(255, 255, 255);
+  color: rgb(50, 49, 48);
+
+  &:hover {
+    background-color: rgb(243, 241, 241);
+    color: rgb(32, 31, 30);
+  }
+}
