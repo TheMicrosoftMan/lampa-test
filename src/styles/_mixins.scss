@@ -11,7 +11,7 @@
   box-sizing: border-box;
   border-width: 1px;
   border-style: solid;
-  border-color: rgb(138, 136, 134);
+  border-color: #8a8886;
   border-radius: 2px;
   height: 32px;
   transition: all ease-in-out 0.2s;
@@ -27,11 +27,11 @@
 
 @mixin button-white() {
   @include button();
-  background-color: rgb(255, 255, 255);
-  color: rgb(50, 49, 48);
+  background-color: #ffffff;
+  color: #323130;
 
   &:hover {
-    background-color: rgb(243, 241, 241);
-    color: rgb(32, 31, 30);
+    background-color: #f3f1f1;
+    color: #201f1e;
   }
 }

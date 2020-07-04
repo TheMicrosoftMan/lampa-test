@@ -1,13 +1,24 @@
 header {
   background-color: #ffffff;
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
 
   nav {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    align-items: center;
     margin: 0 auto;
     max-width: $page-width;
+
+    .header__cart-link,
+    .header__cart-link:visited {
+      color: #323130;
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 1.3rem;
+      line-height: 1.2rem;
+      text-decoration: none;
+    }
 
     .header__cart-btn {
       @include button-white();

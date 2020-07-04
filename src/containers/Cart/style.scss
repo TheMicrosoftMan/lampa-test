@@ -1,3 +1,11 @@
 .cart {
-  background-color: royalblue;
+  display: flex;
+
+  .product-list {
+    max-width: 80%;
+
+    .product-card {
+      width: 25%;
+    }
+  }
 }
