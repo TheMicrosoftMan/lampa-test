@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const Header = ({ count, price }) => {
   return (
     <header>
       <nav>
@@ -9,7 +9,7 @@ export const Header = () => {
           Home
         </Link>
         <Link to="/cart" className="header__cart-btn">
-          Cart <span class="arrow">0</span>
+          Cart {count > 0 && `${count} (${price}₴)`}
         </Link>
       </nav>
     </header>

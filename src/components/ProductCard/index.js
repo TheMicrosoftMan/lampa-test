@@ -1,6 +1,15 @@
 import React from "react";
 
-export const ProductCard = ({ id, title, price, image, count, inCart }) => {
+export const ProductCard = ({
+  id,
+  title,
+  price,
+  image,
+  addToCart,
+  removeFromCart,
+  quantity,
+  inCart,
+}) => {
   return (
     <div className="product-card">
       <img className="product-card__img" src={image} alt={title} />
@@ -8,12 +17,27 @@ export const ProductCard = ({ id, title, price, image, count, inCart }) => {
       <span className="product-card__price">{price}₴</span>
       {inCart ? (
         <div className="product-card__edit">
-          <button className="product-card__edit_btn">-</button>
-          <span className="product-card__edit_count">{count}</span>
-          <button className="product-card__edit_btn">+</button>
+          <button
+            className="product-card__edit_btn"
+            onClick={() => removeFromCart(id)}
+          >
+            -
+          </button>
+          <span className="product-card__edit_count">{quantity}</span>
+          <button
+            className="product-card__edit_btn"
+            onClick={() => addToCart(id)}
+          >
+            +
+          </button>
         </div>
       ) : (
-        <button className="product-card__to-cart-btn">To cart</button>
+        <button
+          className="product-card__to-cart-btn"
+          onClick={() => addToCart(id)}
+        >
+          To cart
+        </button>
       )}
     </div>
   );

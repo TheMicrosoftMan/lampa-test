@@ -1,16 +1,23 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { Home } from "./containers/Home";
 import { Cart } from "./containers/Cart";
 
 import { Header } from "./components/Header";
 
-function App() {
+const App = ({ cart }) => {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header
+          count={cart.cart.length}
+          price={cart.cart.reduce(
+            (accumulator, currentValue) => accumulator + currentValue.price,
+            0
+          )}
+        />
         <main>
           <Switch>
             <Route path="/cart">
@@ -24,6 +31,10 @@ function App() {
       </div>
     </Router>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => state;
+
+const connectedApp = connect(mapStateToProps, null)(App);
+
+export { connectedApp as App };

@@ -1,19 +1,13 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import { ProductCard } from "../../components/ProductCard";
 
-const products = [
-  {
-    id: 0,
-    title:
-      "Ноутбук Asus ZenBook 14 UM431DA-AM063 (90NB0PB3-M02200) Utopia Blue + фирменный чехол и мышка",
-    image:
-      "https://i8.rozetka.ua/goods/18370385/copy_asus_90nb0pb3_m01610_5ec7c842e6083_images_18370385083.jpg",
-    price: 19999,
-  },
-];
+import { addToCart } from "../../actions/cart.actions";
 
-export const Home = () => {
+import { products } from "../../data/products";
+
+const Home = ({ addToCart }) => {
   return (
     <div className="Home">
       Home
@@ -25,9 +19,20 @@ export const Home = () => {
             title={product.title}
             price={product.price}
             image={product.image}
+            addToCart={addToCart}
           />
         ))}
       </div>
     </div>
   );
 };
+
+const mapDispatchToProps = {
+  addToCart: addToCart,
+};
+
+const mapStateToProps = (state) => state;
+
+const connectedHome = connect(mapStateToProps, mapDispatchToProps)(Home);
+
+export { connectedHome as Home };
