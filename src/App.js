@@ -14,25 +14,25 @@ const App = ({ cart, loadCart }) => {
     loadCart();
   }, []);
 
+  const count = cart.cart.reduce(
+    (accumulator, currentValue) => accumulator + 1 * currentValue.quantity,
+    0
+  );
+
+  const totalPrice = cart.cart.reduce(
+    (accumulator, currentValue) =>
+      accumulator + currentValue.price * currentValue.quantity,
+    0
+  );
+
   return (
     <Router>
       <div className="App">
-        <Header
-          count={cart.cart.reduce(
-            (accumulator, currentValue) =>
-              accumulator + 1 * currentValue.quantity,
-            0
-          )}
-          price={cart.cart.reduce(
-            (accumulator, currentValue) =>
-              accumulator + currentValue.price * currentValue.quantity,
-            0
-          )}
-        />
+        <Header count={count} price={totalPrice} />
         <main>
           <Switch>
             <Route path="/cart">
-              <Cart />
+              <Cart totalPrice={totalPrice} />
             </Route>
             <Route path="/">
               <Home />

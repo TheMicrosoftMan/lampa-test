@@ -1,8 +1,17 @@
 .cart {
   display: flex;
 
-  .product-list {
+  .products {
     max-width: 80%;
+
+    &__total-price {
+      display: inline-flex;
+      text-decoration: underline;
+      text-underline-position: under;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 1rem 0 0 1rem;
+    }
 
     .product-card {
       width: 25%;
