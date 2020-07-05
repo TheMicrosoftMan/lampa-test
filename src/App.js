@@ -12,7 +12,7 @@ import { loadCart } from "./actions/cart.actions";
 const App = ({ cart, loadCart }) => {
   useEffect(() => {
     loadCart();
-  }, []);
+  }, [loadCart]);
 
   const count = cart.cart.reduce(
     (accumulator, currentValue) => accumulator + 1 * currentValue.quantity,

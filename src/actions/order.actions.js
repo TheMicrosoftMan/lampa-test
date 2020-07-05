@@ -1,5 +1,7 @@
 import { orderConstants } from "../constants";
 
+import { fakeServerRequest } from "../helpers/server";
+
 export const sendOrder = () => (dispatch, getState) => {
   const state = getState();
 
@@ -11,20 +13,23 @@ export const sendOrder = () => (dispatch, getState) => {
     user: user,
   };
 
-  try {
-    dispatch({
-      type: orderConstants.SEND_ORDER_REQUEST,
-    });
+  dispatch({
+    type: orderConstants.SEND_ORDER_REQUEST,
+  });
 
-    console.log(order);
+  fakeServerRequest(JSON.stringify(order))
+    .then((data) => {
+      dispatch({
+        type: orderConstants.SEND_ORDER_SUCCESS,
+      });
 
-    dispatch({
-      type: orderConstants.SEND_ORDER_SUCCESS,
+      alert("Well done!");
+      console.log(JSON.parse(data));
+    })
+    .catch((error) => {
+      dispatch({
+        type: orderConstants.SEND_ORDER_ERROR,
+        payload: JSON.stringify(error),
+      });
     });
-  } catch (error) {
-    dispatch({
-      type: orderConstants.SEND_ORDER_ERROR,
-      payload: JSON.stringify(error),
-    });
-  }
 };
