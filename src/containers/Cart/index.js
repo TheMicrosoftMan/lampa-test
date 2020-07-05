@@ -5,8 +5,9 @@ import { ProductCard } from "../../components/ProductCard";
 import { OrderForm } from "../../components/OrderForm";
 
 import { addToCart, removeFromCart } from "../../actions/cart.actions";
+import { sendOrder } from "../../actions/order.actions";
 
-const Cart = ({ cart, totalPrice, addToCart, removeFromCart }) => {
+const Cart = ({ cart, totalPrice, addToCart, removeFromCart, sendOrder }) => {
   const showCart = cart.cart.length > 0;
 
   return (
@@ -35,7 +36,7 @@ const Cart = ({ cart, totalPrice, addToCart, removeFromCart }) => {
       ) : (
         "Cart is empty"
       )}
-      {showCart && <OrderForm />}
+      {showCart && <OrderForm onSubmit={sendOrder} />}
     </div>
   );
 };
@@ -45,6 +46,7 @@ const mapStateToProps = (state) => state;
 const mapDispatchToProps = {
   addToCart: addToCart,
   removeFromCart: removeFromCart,
+  sendOrder: sendOrder,
 };
 
 const connectedCart = connect(mapStateToProps, mapDispatchToProps)(Cart);

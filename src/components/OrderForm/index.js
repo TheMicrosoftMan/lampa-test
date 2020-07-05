@@ -1,11 +1,13 @@
 import React from "react";
+import { Field, reduxForm } from "redux-form";
 
-export const OrderForm = () => {
+const OrderForm = ({ handleSubmit }) => {
   return (
-    <form className="OrderForm">
+    <form className="OrderForm" onSubmit={handleSubmit}>
       <label className="OrderForm__item">
         Name
-        <input
+        <Field
+          component="input"
           type="text"
           name="name"
           className="OrderForm__item_input"
@@ -16,7 +18,8 @@ export const OrderForm = () => {
       </label>
       <label className="OrderForm__item">
         Surname
-        <input
+        <Field
+          component="input"
           type="text"
           name="surname"
           className="OrderForm__item_input"
@@ -27,7 +30,8 @@ export const OrderForm = () => {
       </label>
       <label className="OrderForm__item">
         Address
-        <input
+        <Field
+          component="input"
           type="text"
           name="address"
           className="OrderForm__item_input"
@@ -38,7 +42,8 @@ export const OrderForm = () => {
       </label>
       <label className="OrderForm__item">
         Phone
-        <input
+        <Field
+          component="input"
           type="text"
           name="phone"
           className="OrderForm__item_input"
@@ -53,3 +58,9 @@ export const OrderForm = () => {
     </form>
   );
 };
+
+const reduxOrderForm = reduxForm({
+  form: "order",
+})(OrderForm);
+
+export { reduxOrderForm as OrderForm };
