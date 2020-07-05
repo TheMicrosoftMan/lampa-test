@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -7,7 +7,13 @@ import { Cart } from "./containers/Cart";
 
 import { Header } from "./components/Header";
 
-const App = ({ cart }) => {
+import { loadCart } from "./actions/cart.actions";
+
+const App = ({ cart, loadCart }) => {
+  useEffect(() => {
+    loadCart();
+  }, []);
+
   return (
     <Router>
       <div className="App">
@@ -40,6 +46,10 @@ const App = ({ cart }) => {
 
 const mapStateToProps = (state) => state;
 
-const connectedApp = connect(mapStateToProps, null)(App);
+const mapDispatchToProps = {
+  loadCart: loadCart,
+};
+
+const connectedApp = connect(mapStateToProps, mapDispatchToProps)(App);
 
 export { connectedApp as App };

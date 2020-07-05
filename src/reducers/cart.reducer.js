@@ -10,6 +10,12 @@ const initialState = {
 
 export const cart = handleActions(
   {
+    [cartConstants.LOAD_CART]: (state, { payload }) => {
+      return {
+        ...state,
+        cart: [...payload],
+      };
+    },
     [cartConstants.ADD_TO_CART]: (state, { payload }) => {
       return {
         ...state,
