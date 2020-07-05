@@ -1,5 +1,4 @@
 import { cartConstants } from "../constants";
-import { products } from "../data/products";
 
 export const loadCart = () => (dispatch) => {
   try {
@@ -22,7 +21,10 @@ export const addToCart = (id) => (dispatch, getState) => {
 
   try {
     const cart = [...state.cart.cart];
-    const product = products.find((productItem) => productItem.id === id);
+
+    const product = state.products.products.find(
+      (productItem) => productItem.id === id
+    );
     const existedProduct = cart.find((product) => product.id === id);
 
     let updatedCart = [];

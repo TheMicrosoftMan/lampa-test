@@ -5,9 +5,9 @@
   display: flex;
   flex-direction: column;
   align-self: flex-start;
-  border-top: 1px solid #e9e9e9;
-  border-right: 1px solid #e9e9e9;
-  border-bottom: 1px solid #e9e9e9;
+  border-top: $default-border;
+  border-right: $default-border;
+  border-bottom: $default-border;
   background-color: #fff;
 
   &__item {
@@ -15,10 +15,10 @@
     flex-direction: column;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #323130;
+    color: $default-text-color;
 
     &_input {
-      border: 1px solid #323130;
+      border: 1px solid $default-text-color;
       padding: 0px 8px;
       border-radius: 2px;
       height: 32px;

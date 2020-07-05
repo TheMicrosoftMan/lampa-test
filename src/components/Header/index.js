@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Header = ({ count, price }) => {
+export const Header = ({ price }) => {
   return (
     <header>
       <nav>
@@ -9,7 +9,7 @@ export const Header = ({ count, price }) => {
           Home
         </Link>
         <Link to="/cart" className="header__cart-btn">
-          Cart {count > 0 && `${count} (${price}₴)`}
+          Cart {price > 0 && ` - ${price}₴`}
         </Link>
       </nav>
     </header>
