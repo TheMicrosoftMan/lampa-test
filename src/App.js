@@ -12,9 +12,14 @@ const App = ({ cart }) => {
     <Router>
       <div className="App">
         <Header
-          count={cart.cart.length}
+          count={cart.cart.reduce(
+            (accumulator, currentValue) =>
+              accumulator + 1 * currentValue.quantity,
+            0
+          )}
           price={cart.cart.reduce(
-            (accumulator, currentValue) => accumulator + currentValue.price,
+            (accumulator, currentValue) =>
+              accumulator + currentValue.price * currentValue.quantity,
             0
           )}
         />
